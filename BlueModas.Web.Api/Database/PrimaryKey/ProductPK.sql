@@ -1,0 +1,4 @@
+﻿
+
+ALTER TABLE Product
+ADD PRIMARY KEY (ProductId);
