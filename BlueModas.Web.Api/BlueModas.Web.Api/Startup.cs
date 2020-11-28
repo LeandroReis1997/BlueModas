@@ -2,6 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using BlueModas.Web.Api.Mapper;
+using BlueModas.Web.Bll;
+using BlueModas.Web.Bll.Interface;
+using BlueModas.Web.Dal;
+using BlueModas.Web.Dal.Interface;
 using BlueModas.Web.Info.SqlDbContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -51,6 +57,16 @@ namespace BlueModas.Web.Api
             });
 
 
+            services.AddTransient<IProductBll, ProductBll>();
+            services.AddTransient<IProductDal, ProductDal>();
+
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
 
             services.AddControllers();
 
