@@ -1,0 +1,38 @@
+﻿@model List<BlueModas.Web.Core.ViewModels.ProductViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutRestrito.cshtml";
+}
+
+<h1 class="text-center" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+    Lista de Produtos
+</h1>
+<br />
+
+<a asp-controller="product" asp-action="addproduct" class="btn btn-primary btn-lg pull-right"><i class="fas fa-plus-circle"></i> Novo</a>
+<br />
+<br />
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Nome do produto</th>
+            <th scope="col">Preço</th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+
+        <tbody>
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@item.Price</td>
+
+                <td>
+                    <a asp-controller="product" asp-action="editproduct" asp-route-id="@item.ProductId" class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                    <a asp-controller="product" asp-action="deleteproduct" asp-route-id="@item.ProductId" class="btnRemover btn btn-danger"><i class="fas fa-trash-alt text-light"></i></a>
+                </td>
+            </tr>
+        </tbody>
+    }
+</table>

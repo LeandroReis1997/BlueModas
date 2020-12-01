@@ -33,11 +33,10 @@ namespace BlueModas.Web.Api.Controllers
         public IActionResult GetAllProduct()
         {
             return Ok(_mapper.Map<IEnumerable<ProductListDTO>>(_productBll.GetAllProduct()));
-        }   
-        
+        }
 
-        [HttpGet]
-        [Route("{id}")]
+
+        [HttpGet("{id}")]
         [Produces(typeof(IEnumerable<ProductListDTO>))]
         [SwaggerResponse((int)HttpStatusCode.OK, Description = "OK", Type = typeof(ProductListDTO))]
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, Description = "Erro de Autenticação")]
@@ -52,7 +51,7 @@ namespace BlueModas.Web.Api.Controllers
         }
 
         [HttpGet]
-        [Route("{name}")]
+        [Route("getbyproductname/{name}")]
         [Produces(typeof(IEnumerable<ProductListDTO>))]
         [SwaggerResponse((int)HttpStatusCode.OK, Description = "OK", Type = typeof(IEnumerable<ProductListDTO>))]
         [SwaggerResponse((int)HttpStatusCode.OK, Description = "OK", Type = typeof(ProductListDTO))]
@@ -101,12 +100,9 @@ namespace BlueModas.Web.Api.Controllers
         [SwaggerResponse((int)HttpStatusCode.Unauthorized, Description = "Erro de Autenticação")]
         [SwaggerResponse((int)HttpStatusCode.NotFound, Description = "Recurso não encontrado")]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Description = "Erro na API")]
-        public IActionResult DeleteProduct(Guid roomIdentity)
+        public IActionResult DeleteProduct(Guid id)
         {
-            if (_productBll.GetByProductId(roomIdentity) == null)
-                return NotFound();
-
-            _productBll.DeleteProduct(roomIdentity);
+            _productBll.DeleteProduct(id);
             return NoContent();
         }
 

@@ -18,8 +18,7 @@ namespace BlueModas.Web.Core.Controllers
             _mapper = mapper;
         }
 
-        [Route("~/")]
-        [Route("index")]
+       
         public async Task<IActionResult> Index()
         {
             var productService = new ProductService();

@@ -56,7 +56,7 @@ namespace BlueModas.Web.Core
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=welcome}/{action=index}/{id?}");
+                    template: "{controller=product}/{action=index}/{id?}");
             });
         }
     }

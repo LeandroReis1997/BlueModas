@@ -75,7 +75,7 @@ namespace BlueModas.Web.Core.Service
             client.BaseAddress = new Uri(url.BASE_URL);
             client.DefaultRequestHeaders.Accept.Add(new
                 MediaTypeWithQualityHeaderValue("application/json"));
-            var response = await client.GetAsync($"product/{name}");
+            var response = await client.GetAsync($"product/getbyproductname/{name}");
             return JsonConvert.DeserializeObject<List<ProductListDTO>>(await response.Content.ReadAsStringAsync());
         }
     }
