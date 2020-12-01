@@ -33,7 +33,8 @@ namespace BlueModas.Web.Api.Controllers
         public IActionResult GetAllProduct()
         {
             return Ok(_mapper.Map<IEnumerable<ProductListDTO>>(_productBll.GetAllProduct()));
-        }
+        }   
+        
 
         [HttpGet]
         [Route("{id}")]
@@ -48,6 +49,19 @@ namespace BlueModas.Web.Api.Controllers
                 return NotFound();
 
             return Ok(_mapper.Map<ProductListDTO>(_productBll.GetByProductId(id)));
+        }
+
+        [HttpGet]
+        [Route("{name}")]
+        [Produces(typeof(IEnumerable<ProductListDTO>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, Description = "OK", Type = typeof(IEnumerable<ProductListDTO>))]
+        [SwaggerResponse((int)HttpStatusCode.OK, Description = "OK", Type = typeof(ProductListDTO))]
+        [SwaggerResponse((int)HttpStatusCode.Unauthorized, Description = "Erro de Autenticação")]
+        [SwaggerResponse((int)HttpStatusCode.NotFound, Description = "Recurso não encontrado")]
+        [SwaggerResponse((int)HttpStatusCode.InternalServerError, Description = "Erro na API")]
+        public IActionResult GetByProductName(string name)
+        {
+            return Ok(_mapper.Map<IEnumerable<ProductListDTO>>(_productBll.GetByProductName(name)));
         }
 
         [HttpPost]

@@ -1,0 +1,62 @@
+﻿@model List<BlueModas.Web.Core.ViewModels.ProductViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<br />
+<div id="demo" class="carousel slide" data-ride="carousel">
+
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+        <li data-target="#demo" data-slide-to="0" class="active"></li>
+        <li data-target="#demo" data-slide-to="1"></li>
+        <li data-target="#demo" data-slide-to="2"></li>
+    </ul>
+
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <center><img src="~/img/banner_roupa3.jpg" alt="Los Angeles" width="1116" height="500"></center>
+        </div>
+        <div class="carousel-item">
+            <center> <img src="~/img/banner_roupa2.jpg" alt="Chicago" width="1100" height="500"></center>
+        </div>
+        <div class="carousel-item">
+            <center>   <img src="~/img/banner_roupa1.jpg" alt="New York" width="1100" height="500"></center>
+        </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#demo" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
+
+<br />
+<label>Destaque</label>
+<br />
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <div class="card mb-4 box-shadow">
+                <img class="card-img-top" src="https://www.strokejoinville.com.br/wp-content/uploads/sites/804/2017/05/produto-sem-imagem-1-300x300.gif" data-holder-rendered="true">
+                <div class="card-body">
+                    <p class="card-text">Nome: @item.ProductName.</p>
+                    <p class="card-text">Preço: @item.Price.</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-md btn-outline-secondary" style="margin-left: 23%;width: 145px;">Visualizar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -14,7 +14,7 @@ namespace BlueModas.Web.Api.Mapper
         {
             CreateMap<ProductDTO, ProductInfo>();
 
-            CreateMap<ProductListDTO, ProductInfo>();
+            CreateMap<ProductListDTO, ProductInfo>().ReverseMap();
         }
     }
 }
