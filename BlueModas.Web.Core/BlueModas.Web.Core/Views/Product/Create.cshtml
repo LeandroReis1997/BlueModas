@@ -4,32 +4,32 @@
     Layout = "~/Views/Shared/_LayoutRestrito.cshtml";
 }
 
-    <section>
-        <form asp-controller="product" method="post" asp-action="createproduct">
-            <h1 class="text-center" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
-                Novo Produto
-            </h1><br />
+<section>
+    <form asp-controller="product" method="post" asp-action="createproduct">
+        <h1 class="text-center" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+            Novo Produto
+        </h1><br />
 
-            <div class="row">
-                <div class="col-md-12">
-                    <label>Nome:</label>
-                    <input type="text" class="form-control" asp-for="ProductName" required autofocus /><br />
-                </div>
+        <div class="row">
+            <div class="col-md-12">
+                <label>Nome:</label>
+                <input type="text" class="form-control" asp-for="ProductName" required autofocus /><br />
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <label>Preço:</label>
-                    <input type="number" class="form-control" asp-for="Price" required autofocus /><br />
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <label>Preço:</label>
+                <input type="text" class="form-control" asp-for="Price" required onKeyPress="return(moeda(this,'.',',',event))" /><br />
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                    <label>Imagem:</label>
-                    <input type="text" class="form-control" asp-for="Image" required autofocus /><br />
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <label>Quantidade:</label>
+                <input type="number" class="form-control" asp-for="Quantity" value="1" required /><br />
             </div>
+        </div>
 
-            <button type="submit" class="btn btn-primary" style="width:100%;">salvar</button>
+        <button type="submit" class="btn btn-primary" style="width:100%;">salvar</button>
 
-        </form>
-    </section>
+    </form>
+</section>

@@ -12,5 +12,6 @@ namespace BlueModas.Web.Info.SqlDbContext
         : base(options) { }
 
         public DbSet<ProductInfo> Product { get; set; }
+        public DbSet<SaleInfo> Sale { get; set; }
     }
 }

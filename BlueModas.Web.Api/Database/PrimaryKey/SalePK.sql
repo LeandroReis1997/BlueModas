@@ -1,0 +1,5 @@
+﻿
+
+
+ALTER TABLE Sale
+ADD PRIMARY KEY (SaleId);

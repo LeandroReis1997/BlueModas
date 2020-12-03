@@ -11,6 +11,8 @@ namespace BlueModas.Web.Core.Mapper
             CreateMap<ProductDTO, ProductViewModel>();
 
             CreateMap<ProductListDTO, ProductViewModel>();
+
+            CreateMap<SaleDTO, SaleViewModel>();
         }
     }
 }

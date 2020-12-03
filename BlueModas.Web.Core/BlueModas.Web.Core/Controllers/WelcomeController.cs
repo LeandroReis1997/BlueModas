@@ -32,6 +32,10 @@ namespace BlueModas.Web.Core.Controllers
         {
             var productService = new ProductService();
             var product = _mapper.Map<ProductViewModel>(await productService.GetByProductId(id));
+            if (product.Quantity == null)
+            {
+                return View("Views/Welcome/Stock.cshtml");
+            }
             return View("ViewProduct", product);
         }
     }

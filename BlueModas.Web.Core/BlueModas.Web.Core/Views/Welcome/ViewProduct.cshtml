@@ -4,28 +4,41 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-<div class="row">
-    <div class="col-12">
-        <h1 class="page-header">@Model.ProductName</h1>
-    </div>
-</div>
-<br />
-<div class="row">
-    <div class="col-lg-6 mb-6">
-        <div>
-            <div class="main-product-image">
-                <img src="https://www.strokejoinville.com.br/wp-content/uploads/sites/804/2017/05/produto-sem-imagem-1-300x300.gif" alt="DualShock Controller for PlayStation 4" class="img-fluid">
+<section>
+    <form asp-controller="sale" method="post" asp-action="createsale">
+        <input type="hidden" asp-for="ProductId"/>
+        <div class="row">
+            <div class="col-12">
+                <h1 class="page-header">@Model.ProductName</h1>
             </div>
         </div>
-    </div>
+        <br />
+        <div class="row">
+            <div class="col-lg-6 mb-6">
+                <div>
+                    <div class="main-product-image">
+                        <img src="https://www.strokejoinville.com.br/wp-content/uploads/sites/804/2017/05/produto-sem-imagem-1-300x300.gif" alt="DualShock Controller for PlayStation 4" class="img-fluid">
+                    </div>
+                </div>
+            </div>
 
-    <div class="col-lg-6">
-        <div class="form-group price_elem row">
-            <label class="col-sm-3 col-md-3 form-control-label nopaddingtop" style="font-size: xx-large !important;">Preço:</label>
-            <div class="">
-                <span class="product-form-price" id="product-form-price" style="font-size: xx-large;"><b>R$@Model.Price</b></span>
+            <div class="col-lg-6">
+                <div class="form-group price_elem row">
+                    <label class="col-sm-3 col-md-3 form-control-label nopaddingtop" style="font-size: xx-large !important;">Preço:</label>
+                    <div class="">
+                        <span class="product-form-price" id="product-form-price" style="font-size: xx-large;"><b>R$@Model.Price</b></span>
+                    </div>
+                </div>
+                <div class="form-group price_elem row">
+                    <label class="col-sm-3 col-md-3 form-control-label nopaddingtop" style="font-size: xx-large !important;">Quantidade:</label>
+                    <div class="">
+                        <input type="number" @Model.Quantity class="form-control" maxlength="5" value="1" style="margin-left: 21%;">
+                    </div>
+                </div>
+                <div class="form-group price_elem row">
+                    <button type="submit" class="btn btn-primary" style="width:100%;">Comprar</button>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    </form>
+</section>

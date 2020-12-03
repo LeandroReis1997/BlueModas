@@ -39,8 +39,8 @@ namespace BlueModas.Web.Api
                 c.SwaggerDoc("v1", new OpenApiInfo
                 {
                     Version = "v1",
-                    Title = "API de Agendamento de Reuniões",
-                    Description = "A primeira versão da API de agendamentos",
+                    Title = "API da Blue Modas",
+                    Description = "A primeira versão da API de lojas",
                     TermsOfService = new Uri("https://example.com/terms"),
                     Contact = new OpenApiContact
                     {
@@ -59,6 +59,8 @@ namespace BlueModas.Web.Api
 
             services.AddTransient<IProductBll, ProductBll>();
             services.AddTransient<IProductDal, ProductDal>();
+            services.AddTransient<ISaleBll, SaleBll>();
+            services.AddTransient<ISaleDal, SaleDal>();
 
             var mapperConfig = new MapperConfiguration(mc =>
             {
